@@ -9,7 +9,7 @@ initial <- read.table("household_power_consumption.txt",
                       header=TRUE,sep=";",quote="",comment.char="",
                       nrows=100)
 
-classes <- sapply(initial,class)
+classes <- sapply(initial,class) #get class for each column
 
 data <- read.table("household_power_consumption.txt",
                    header=FALSE,sep=";",quote="",na.strings="?",comment.char="",
