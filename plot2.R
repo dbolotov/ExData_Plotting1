@@ -22,13 +22,10 @@ data$DateTime <- as.POSIXct(paste(data$Date, data$Time), format="%d/%m/%Y %H:%M:
 
 
 #create and save plot
+png(filename="plot2.png",width=480,height=480)
 plot(data$DateTime,data$Global_active_power,type="l",
      xlab="", ylab="Global Active Power (kilowatts)")
+dev.off()
 
-
-
-# with(data,plot(DateTime,Global_active_power))
-plot(Global_active_power ~ DateTime,data)
-lines(data$Global_active_power ~ data$DateTime)
 
 
