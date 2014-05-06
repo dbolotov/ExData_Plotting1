@@ -41,6 +41,3 @@ with(data,{
 })
 dev.off()
 
-
-
-
