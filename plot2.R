@@ -11,14 +11,24 @@ initial <- read.table("household_power_consumption.txt",
 
 classes <- sapply(initial,class)
 
-ptm <- proc.time()
 data <- read.table("household_power_consumption.txt",
                    header=FALSE,sep=";",quote="",na.strings="?",comment.char="",
                    colClasses = classes,skip = 66637,nrows=2880)
-proc.time() - ptm
 
 #preprocess
 names(data) <- names(initial)
 
-data$DateTime <- paste(data$Date,data$Time)
-data$DateTime <- strptime(data$DateTime, format = "%d/%m/%Y %H:%M:%S")
+data$DateTime <- as.POSIXct(paste(data$Date, data$Time), format="%d/%m/%Y %H:%M:%S")
+
+
+#create and save plot
+plot(data$DateTime,data$Global_active_power,type="l",
+     xlab="", ylab="Global Active Power (kilowatts)")
+
+
+
+# with(data,plot(DateTime,Global_active_power))
+plot(Global_active_power ~ DateTime,data)
+lines(data$Global_active_power ~ data$DateTime)
+
+
