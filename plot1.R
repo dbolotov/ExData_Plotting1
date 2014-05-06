@@ -1,5 +1,6 @@
 # Coursera - Exploratory Data Analysis
 # Course Project 1
+# plot1.R
 
 setwd("E:/documents/progr/ExData_Plotting1")
 
